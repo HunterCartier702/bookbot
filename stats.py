@@ -24,3 +24,11 @@ def get_book_cc(text):
 		else:
 			char_count[char] = 1
 	return char_count
+
+
+def sort_count(text):
+	sorted_list = []
+
+	for key, value in text.items():
+		if 
+	return sorted_list
