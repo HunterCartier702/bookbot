@@ -1,13 +1,20 @@
+import sys
 from stats import get_num_words, get_chars_dict, chars_dict_to_sorted_list
+
+# Books taken from: https://www.gutenberg.org/ 
+# https://www.gutenberg.org/cache/epub/41445/pg41445.txt
 
 
 def main():
-    book_path = "books/frankenstein.txt"
-    text = get_book_text(book_path)
-    num_words = get_num_words(text)
-    chars_dict = get_chars_dict(text)
-    chars_sorted_list = chars_dict_to_sorted_list(chars_dict)
-    print_report(book_path, num_words,chars_sorted_list)
+	if len(sys.argv) < 2:
+		print("Usage: python3 main.py <path_to_book>")
+		sys.exit(1)
+	book_path = sys.argv[1]
+	text = get_book_text(book_path) # grab all text
+	num_words = get_num_words(text) # grab word count
+	chars_dict = get_chars_dict(text) # grab '{char: count}'
+	chars_sorted_list = chars_dict_to_sorted_list(chars_dict) #dict to list.sort
+	print_report(book_path, num_words, chars_sorted_list)
 
 
 
@@ -31,7 +38,7 @@ def print_report(book_path, num_words, chars_sorted_list):
 	print("============= END ===============")
 
 
-# main()
+
 
 
 if __name__ == '__main__':
